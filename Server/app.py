@@ -84,6 +84,18 @@ criar_tabela.cursor.execute("""
     )
 """)
 
+criar_tabela.cursor.execute("""
+    CREATE TABLE IF NOT EXISTS comentarios (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id_receita INTEGER NOT NULL,
+        nome TEXT NOT NULL,
+        email TEXT NOT NULL,
+        comentario TEXT NOT NULL,
+        data TEXT NOT NULL,
+        FOREIGN KEY (id_receita) REFERENCES receitas(id_receita)
+    )
+""")
+
 criar_tabela.conexao.commit()
 criar_tabela.fechar_conexao()
 # ----------------------------------
@@ -356,6 +368,44 @@ def receita(id_receita):
     finally:
         db.fechar_conexao()
 
+# ROTA PARA COMENTÁRIOS DA RECEITA
+
+@app.route("/api/comentarios/<id_receita>", methods=["GET"])
+def get_comentarios(id_receita):
+    try:
+        db = CriarDB("PanelaVelha.db")
+        comentarios_array = db.cursor.execute("SELECT * FROM comentarios WHERE id_receita = ?", (id_receita,)).fetchall()
+        
+        comentarios = [
+            {"id": row[0], "nome": row[1], "email": row[2], "comentario": row[3], "data": row[4]}
+            for row in comentarios_array
+        ]
+        
+        return jsonify({"comentarios": comentarios}), 200
+    except Exception as e:
+        return jsonify({"erro": str(e)}), 500
+    finally:
+        db.fechar_conexao()
+
+@app.route("/api/comentarios", methods=["POST"])
+def add_comentario():
+    data = request.get_json()
+    id_receita = data.get("id_receita")
+    nome = data.get("nome")
+    email = data.get("email")
+    comentario = data.get("comentario")
+    data_atual = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    try:
+        db = CriarDB("PanelaVelha.db")
+        db.cursor.execute("INSERT INTO comentarios (id_receita, nome, email, comentario, data) VALUES (?, ?, ?, ?, ?)", 
+                          (id_receita, nome, email, comentario, data_atual))
+        db.conexao.commit()
+        return jsonify({"mensagem": "Comentário adicionado com sucesso!"}), 201
+    except Exception as e:
+        return jsonify({"erro": str(e)}), 500
+    finally:
+        db.fechar_conexao()
 
 # ROTA PARA MAPEAR AS CATEGORIAS NA CRIACAO DE RECEITAS
 
