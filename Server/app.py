@@ -330,7 +330,7 @@ def receita(id_receita):
         receita_array = db.cursor.execute(
             """SELECT r.id_receita, r.nome_receita, r.imagem_receita, r.ingredientes, r.passos_receita, r.num_porcao, r.tipo_porcao, r.dificuldade, r.tempo_min, r.tempo_hora, r.desc, u.id, u.nome from receitas r
                inner join usuarios u on r.id_usuario = u.id
-               where r.id_receita = ?""", (id_receita)
+               where r.id_receita = ?""", (id_receita,)
         ).fetchone()
 
         categoria_array = db.cursor.execute(

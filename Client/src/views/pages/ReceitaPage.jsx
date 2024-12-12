@@ -25,7 +25,6 @@ const ReceitaPage = () => {
         })
         .then(response => {
             setUsuario(response.data);
-            console.log(response.data);
         })
         .catch(err => console.error("Erro ao buscar dados do usuário: ", err))
     };    
@@ -39,7 +38,6 @@ const ReceitaPage = () => {
         axios.get(`http://127.0.0.1:5000/api/receita/${id}`)
         .then(response => {
             setReceitaData(response.data.receita);
-            console.log(response.data.receita);
         })
         .catch(err => console.log(err));
     };
@@ -156,7 +154,7 @@ const ReceitaPage = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex justify-between mr-3 ml-3 mt-3">
+                    <div className="flex justify-between mr-3 ml-3 mt-3 mb-10">
                         <div className="flex flex-col border-r-2 border-r-jet mb-1 w-1/2 font-semibold">
                             <h2 className="uppercase">igredientes</h2>
                             <div>
@@ -184,9 +182,9 @@ const ReceitaPage = () => {
                         </div>                    
                     </div>            
                         
-                        <div  className="mt-16">
+                        {/* <div  className="mt-16">
                             <FormAvaliacao/>
-                        </div>                
+                        </div>                 */}
                 </div>
             ) : (
                 <div className="flex justify-center items-center mt-12">

@@ -14,7 +14,6 @@ function Searchbar() {
                 axios.get("http://127.0.0.1:5000/api/mostrar_receitas")  // usando a msm rota das receitas
                 .then(response => {
                     setNomeReceitas(response.data.receitas.map(r => r.nome_receita));     // fazendo map pq so precisa do nome_receita
-                    console.log(response.data.receitas)
                 })
             } catch (error) {
                 console.error("Erro ao buscar receitas:", error);
@@ -30,7 +29,6 @@ function Searchbar() {
             const filtrados = nomeReceitas.filter(receita =>
                 receita.toLowerCase().includes(input.toLowerCase())  // Verifica a string
             );
-            console.log("Filtrados:", filtrados);  // Verifique os resultados filtrados
             setResultados(filtrados);
         } else {
             setResultados([]);  // Se não houver input, limpa os resultados

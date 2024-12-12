@@ -20,7 +20,6 @@ const Usuario = () => {
         })
         .then(response => {
             setUsuario(response.data);
-            console.log(response.data);
         })
         .catch(err => console.error("Erro ao buscar dados do usuário: ", err))
     };    
@@ -34,7 +33,6 @@ const Usuario = () => {
         axios.get(`http://127.0.0.1:5000/api/mostrar_receitas_usuario/${usuario.id}`)
         .then(response => {
             setReceitasUsuario(response.data.receitas);
-            console.log(response.data);
         })
     }
 
@@ -42,7 +40,6 @@ const Usuario = () => {
         axios.get(`http://127.0.0.1:5000/api/mostrar_receitas_favoritas/${usuario.id}`)
         .then(response => {
             setReceitasFavoritas(response.data.receitas);
-            console.log(response.data);
         })
     }
 

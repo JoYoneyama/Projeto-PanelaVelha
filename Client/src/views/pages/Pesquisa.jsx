@@ -13,7 +13,6 @@ const Pesquisa = () => {
         axios.get(`http://127.0.0.1:5000/api/mostrar_receitas/${pesquisa}`)
         .then(response => {
             setReceitas(response.data.receitas);
-            console.log(response.data);
         })
         .catch(err => console.log(err));
     }

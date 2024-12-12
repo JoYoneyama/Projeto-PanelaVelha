@@ -17,7 +17,6 @@ const Login = () => {
         axios.post("http://127.0.0.1:5000/api/login", {"nome": nome, "senha": senha,})
         .then(response => {
             if (response.data) {
-                console.log(response.data.token)
                 localStorage.setItem("jwtToken", response.data.token)
                 alert("Login realizado com sucesso")
                 window.location.href = "/";

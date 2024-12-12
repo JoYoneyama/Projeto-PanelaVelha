@@ -13,7 +13,6 @@ const EditarReceita = () => {
         axios.get(`http://127.0.0.1:5000/api/receita/${id}`)         // puxando as informaçoes ja existentes da receita
         .then(response => {
             setReceita(response.data.receita);
-            console.log(response.data.receita);
         })
         .catch(err => console.log(err));
     };
@@ -22,7 +21,6 @@ const EditarReceita = () => {
         axios.get("http://127.0.0.1:5000/api/categorias")
         .then(response => {
             setTiposCategoria(response.data.categorias)
-            console.log(response.data.categorias)
         })
         .catch(err => console.log(err))
     }
@@ -80,7 +78,6 @@ const EditarReceita = () => {
         })
         .then(response => {
             setUsuario(response.data);
-            console.log(response.data);
         })
         .catch(err => console.error("Erro ao buscar dados do usuário: ", err))
     };    
@@ -310,21 +307,21 @@ const EditarReceita = () => {
                                         Categorias*
                                         </label>
                                     </div>
-                                    {tiposCategoria.map((categoria) => (
-                                        <div key={categoria.id_categoria} className="flex items-center gap-2 w-72 leading-none h-3 relative bottom-3">
+                                    {tiposCategoria.map((cat) => (
+                                        <div key={cat.id_categoria} className="flex items-center gap-2 w-72 leading-none h-3 relative bottom-3">
                                             <input
                                                 type="checkbox"
-                                                id={`cat-${categoria.id_categoria}`}
-                                                value={categoria.id_categoria}
+                                                id={`cat-${cat.id_categoria}`}
+                                                value={cat.id_categoria}
                                                 checked={categoria.includes(cat.id_categoria)}   // ja deixar as categorias marcadas
                                                 className="w-4 h-4 text-red-500 border-gray-300 rounded focus:ring-red-500"
-                                                onChange={(e) => handleCategoriaChange(e, categoria.id_categoria)}
+                                                onChange={(e) => handleCategoriaChange(e, cat.id_categoria)}
                                             />
                                             <label
-                                                htmlFor={`cat-${categoria.id_categoria}`}
+                                                htmlFor={`cat-${cat.id_categoria}`}
                                                 className="text-gray-700"
                                             >
-                                                {categoria.nome_categoria}
+                                                {cat.nome_categoria}
                                             </label>
                                         </div>
                                     ))}

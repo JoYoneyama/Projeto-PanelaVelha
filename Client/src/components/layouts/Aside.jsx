@@ -21,7 +21,6 @@ function Aside() {
         .then(response => {
             setUser(response.data.usuario);
         })
-        .catch(err => console.error("Erro ao buscar dados do usuário: ", err))
     }
 
     useEffect(() => {
@@ -47,8 +46,6 @@ function Aside() {
                     <ul className='flex flex-col items-start uppercase text-sm font-semibold text-peaches'>
                         <li className='pb-2 text-lg duration-100 hover:text-chocolate-cosmos'><Link to="/">Início</Link></li>
                         <li className='pb-2 text-lg duration-100 hover:text-chocolate-cosmos'><Link to="/receitas">Receitas</Link></li>
-                        <li className='pb-2 text-lg duration-100 hover:text-chocolate-cosmos'>prateleira</li>
-                        <li className='pb-2 text-lg duration-100 hover:text-chocolate-cosmos'>salvas</li>
                         <li className='pb-2 text-lg duration-100 hover:text-chocolate-cosmos'>
                             {user ? (
                                 <Link to="/usuario">{user}</Link>

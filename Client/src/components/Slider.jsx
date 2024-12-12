@@ -52,8 +52,6 @@ function Slider({ slides }) {
                 disableOnInteraction: false,
             }}
             modules={[Autoplay]}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
         >
             {slides.map((slide, index) => (
                 <SwiperSlide key={index} className="slide">
