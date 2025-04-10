@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { useState } from "react";
 import axios from "axios";
 
-import "../../components/css/Login.css"
+import "../pages/login/Login.css"
 
 const Cadastro = () => {
 

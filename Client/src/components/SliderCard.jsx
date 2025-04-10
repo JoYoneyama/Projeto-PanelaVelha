@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
-import Garfo from "../../src/assets/img/garfo-e-faca.png";
+import Garfo from "../assets/img/garfo-e-faca.png";
 
 const SliderCard = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

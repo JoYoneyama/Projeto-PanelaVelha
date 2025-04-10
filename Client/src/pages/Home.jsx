@@ -1,10 +1,10 @@
-import Categoria from "../../components/Categoria";
-import MaisReceitas from "../../components/MaisReceitas";
-import Receita_Populares from "../../components/Receita_Populares";
-import Regioes from "../../components/Regioes";
-import SectionTitle from "../../components/SectionTitle";
-import Slider from "../../components/Slider";
-import SliderCard from "../../components/SliderCard";
+import Categoria from "../components/Categoria";
+import MaisReceitas from "../components/MaisReceitas";
+import Receita_Populares from "../components/Receita_Populares";
+import Regioes from "../components/Regioes";
+import SectionTitle from "../components/SectionTitle";
+import Slider from "../components/slider/Slider";
+import SliderCard from "../components/SliderCard";
 
 const foodSlides = [
     {   

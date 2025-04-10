@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Card from "../../components/CardReceitas"
+import Card from "../components/CardReceitas"
 import { useParams } from "react-router-dom";
-import Slider from "../../components/Slider";
+import Slider from "../components/slider/Slider";
 
 const ReceitasCategoria = () => {
     const [receitas, setReceitas] = useState([]);

@@ -19,7 +19,7 @@ const Receita_Populares = () => {
   }, []);
 
   return (
-    <div className="flex justify-start gap-2 ml-3 w-[96%] h-46 p-3 bg-slate-100 relative shadow-lg rounded-md">
+    <div className="flex justify-center gap-2 ml-3 w-[96%] h-46 p-2 bg-slate-100 relative shadow-lg rounded-md">
       {receitas.map((receita) => (
         <Card key={receita.id} receita={receita} />
       ))}

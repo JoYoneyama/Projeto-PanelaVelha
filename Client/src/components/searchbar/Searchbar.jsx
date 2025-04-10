@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
-import './css/Searchbar.css'
+import '../searchbar/Searchbar.css'
 
 function Searchbar() {
     const [input, setInput] = useState("");

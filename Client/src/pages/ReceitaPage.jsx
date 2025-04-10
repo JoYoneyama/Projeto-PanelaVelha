@@ -1,8 +1,8 @@
-import Garfo from "../../assets/img/garfo-e-faca.png";
-import Relogio from "../../assets/img/despertar.png";
-import Chefe from "../../assets/img/chefe-de-cozinha.png";
-import Nivel from "../../assets/img/elevacao.png";
-import FormAvaliacao from "../../components/FormAvaliacao";
+import Garfo from "../assets/img/garfo-e-faca.png";
+import Relogio from "../assets/img/despertar.png";
+import Chefe from "../assets/img/chefe-de-cozinha.png";
+import Nivel from "../assets/img/elevacao.png";
+import FormAvaliacao from "../components/FormAvaliacao";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -156,7 +156,7 @@ const ReceitaPage = () => {
                     </div>
                     <div className="flex justify-between mr-3 ml-3 mt-3 mb-10">
                         <div className="flex flex-col border-r-2 border-r-jet mb-1 w-1/2 font-semibold">
-                            <h2 className="uppercase">igredientes</h2>
+                            <h2 className="uppercase">ingredientes</h2>
                             <div>
                                 <ul className="list-disc ml-5 mt-4 font-normal text-jet">
                                     {JSON.parse(receitaData.ingredientes).map((ingrediente) => (
