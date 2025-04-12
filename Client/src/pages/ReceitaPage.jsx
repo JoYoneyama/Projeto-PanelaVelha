@@ -182,9 +182,9 @@ const ReceitaPage = () => {
                         </div>                    
                     </div>            
                         
-                        {/* <div  className="mt-16">
+                        <div  className="mt-16">
                             <FormAvaliacao/>
-                        </div>                 */}
+                        </div>                
                 </div>
             ) : (
                 <div className="flex justify-center items-center mt-12">
